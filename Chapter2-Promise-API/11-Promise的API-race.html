@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("成功");
+        }, 1000);
+      });
+      // let p2 = Promise.resolve("hello");
+      let p2 = Promise.reject("Error");
+      let p3 = Promise.resolve("ok~");
+      let p4 = Promise.reject("Error22");
+
+      // 调用
+      // 哪个Promise最快出结果就返回哪个结果
+      const result = Promise.race([p1, p2, p3, p4]);
+      console.log(result);
+    </script>
+  </body>
+</html>

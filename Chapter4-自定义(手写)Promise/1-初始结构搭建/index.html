@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./Promise-class版本实现.js"></script>
+  </head>
+  <body>
+    <script>
+      // // 实例化对象
+      // let p = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve("ok");
+      //     // reject("error");
+      //   });
+      // });
+      // // 执行 then 方法
+      // p.then()
+      //   .then((value) => {
+      //     console.log(222);
+      //   })
+      //   .then((value) => {
+      //     console.log(333);
+      //   })
+      //   .catch((reason) => {
+      //     console.warn(reason);
+      //   });
+
+      // const p = Promise.resolve("ok");
+      // const p1 = Promise.resolve(
+      //   new Promise((resolve, reject) => {
+      //     // resolve("ok");
+      //     reject("error");
+      //   })
+      // );
+      // const p2 = Promise.resolve(Promise.resolve("oh yeah"));
+
+      // console.log(p2);
+
+      // const p3 = Promise.reject("err");
+      // const p4 = Promise.reject(
+      //   new Promise((resolve, reject) => {
+      //     resolve("okk");
+      //   })
+      // );
+      // console.log(p3);
+      // console.log(p4);
+
+      // let p1 = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve("ok");
+      //   }, 1000);
+      // });
+      // let p2 = Promise.reject("SUCCESS");
+      // let p3 = Promise.resolve("oh yeah");
+
+      // 调用 all 方法
+      // const result = Promise.all([p1, p2, p3]);
+      // console.log(result);
+      // 调用 race 方法
+      // const result = Promise.race([p1, p2, p3]);
+      // console.log(result);
+
+      // then 方法回调的异步执行
+      // let p1 = new Promise((resolve, reject) => {
+      //   // resolve("ok");
+      //   reject("Error");
+      //   console.log(111);
+      // });
+
+      // p1.then(
+      //   (value) => {
+      //     console.log(222);
+      //   },
+      //   (reason) => {
+      //     console.log(444);
+      //   }
+      // );
+
+      // console.log(333);
+
+      // 封装类
+      console.log(Promise.resolve("ok"));
+    </script>
+  </body>
+</html>

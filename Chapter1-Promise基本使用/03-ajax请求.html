@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">发送ajax请求</button>
+    <script>
+      const btn = document.getElementById("btn");
+      btn.addEventListener("click", function () {
+        const p = new Promise((resolve, reject) => {
+          // 创建对象
+          const xhr = new XMLHttpRequest();
+          // 初始化
+          xhr.open("get", "http:127.0.0.1:8888/pages/pages_selectAll");
+          // 发送
+          xhr.send();
+          // 处理响应结果
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+              if (xhr.status >= 200 && xhr.status < 300) {
+                resolve(xhr.response);
+              } else {
+                reject(xhr.status);
+              }
+            }
+          };
+        });
+        p.then(
+          (value) => {
+            console.log(value);
+          },
+          (err) => {
+            throw err;
+          }
+        );
+      });
+    </script>
+  </body>
+</html>

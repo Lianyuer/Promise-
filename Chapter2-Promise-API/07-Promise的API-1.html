@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let p = new Promise((resolve, reject) => {
+        // 执行器函数-同步调用
+        // console.log(111);
+        // 修改promise对象的状态
+        reject("err");
+      });
+      // console.log(222);
+      // 执行 catch 方法
+      p.catch((err) => {
+        console.log(err);
+      });
+    </script>
+  </body>
+</html>

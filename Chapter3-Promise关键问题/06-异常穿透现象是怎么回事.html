@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       *  promise 异常穿透?
+       * (1) 当使用 promise 的 then 链式调用时,可以在最后指定失败的回调
+       * (2) 前面任何操作出现了异常,都会传到最后失败的回调中处理
+       */
+      let p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // resolve("ok");
+          reject("Err");
+        }, 1000);
+      });
+
+      p.then((value) => {
+        console.log(111);
+      })
+        .then((value) => {
+          // console.log(222);
+          throw "失败啦!";
+        })
+        .then((value) => {
+          console.log(333);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    </script>
+  </body>
+</html>

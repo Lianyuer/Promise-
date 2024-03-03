@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // reject 方法无论接收什么参数结果都是失败
+      let p1 = Promise.reject(123);
+      let p2 = Promise.reject("iloveyou");
+      let p3 = Promise.reject(
+        new Promise((resolve, reject) => {
+          resolve(123);
+        })
+      );
+
+      console.log(p1);
+      console.log(p2);
+      console.log(p3);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let p1 = new Promise((resolve, reject) => {
+        resolve("成功");
+      });
+      // let p2 = Promise.resolve("hello");
+      let p2 = Promise.reject("Error");
+      let p3 = Promise.resolve("ok~");
+      let p4 = Promise.reject("Error22");
+
+      const result = Promise.all([p1, p2, p3, p4]);
+      // promises都成功才成功,返回的结果是所有成功的结果组成的数组
+      // promises有一个失败就失败,返回的结果是第一个失败的结果
+      console.log(result);
+    </script>
+  </body>
+</html>

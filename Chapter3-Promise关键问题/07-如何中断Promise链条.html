@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 如何中断promise链条?
+       * (1) 当使用 promise 的 then 链式调用试试,再中间中断,不在调用后面的回调函数
+       * (2) 办法:在回调函数中返回一个 pendding 状态的 promise 对象
+       */
+
+      let p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("ok");
+        }, 1000);
+      });
+
+      p.then((data) => {
+        console.log(111);
+        return new Promise((resolve, reject) => {});
+      })
+        .then((data) => {
+          console.log(222);
+        })
+        .then((data) => {
+          console.log(333);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       *  1. await 右侧的表达式一般为 promise 对象，但也可以是其他的值
+       *  2. 如果表达式是 promise 对象，await 返回的是 promise 成功的值
+       *  3. 如果表达式是其他值，直接将此值作为 await 的返回值
+       *
+       * 【注意】
+       *  1. await 必须写在 async 函数中，但 async 函数中可以没有 await
+       *  2. 如果 await 的 promise 失败了，就会抛出异常，需要通过 try...catch 捕获处理
+       */
+      async function main() {
+        let p = new Promise((resolve, reject) => {
+          // resolve("OK");
+          reject("Error");
+        });
+        // 1. 右侧为 promise 的情况
+        // let res1 = await p;
+        // console.log(res1); // OK
+
+        // 2. 右侧为其他值的情况
+        // let res2 = await 20;
+        // console.log(res2); // 20
+
+        // 3. 如果 promise 是失败的状态
+        // let res3 = await p; // 报错
+        // console.log(res3);
+        try {
+          let res3 = await p;
+        } catch (e) {
+          console.warn(e); // 拿到失败的结果 'Error'
+        }
+      }
+      main();
+    </script>
+  </body>
+</html>

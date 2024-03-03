@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="btn">点击抽奖</button>
+  </body>
+  <script>
+    const btn = document.querySelector(".btn");
+    const random = (m, n) => {
+      return Math.floor(Math.random() * (n - m + 1)) + m;
+    };
+    btn.addEventListener("click", () => {
+      const p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          let number = random(1, 100);
+          console.log(number);
+          if (number <= 30) {
+            resolve(number);
+          } else {
+            reject(number);
+          }
+        }, 1000);
+      });
+
+      console.log(p, "promise");
+      p.then(
+        (value) => {
+          alert("恭喜你中奖了,中奖号码为" + value);
+        },
+        (reason) => {
+          alert("很遗憾，你没有中奖，号码为" + reason);
+        }
+      );
+    });
+  </script>
+</html>
